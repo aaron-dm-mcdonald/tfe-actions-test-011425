@@ -6,14 +6,14 @@ terraform {
     }
   }
 
-  cloud { 
-    
-    organization = "test-gh-actions" 
+  cloud {
 
-    workspaces { 
-      name = "terraform-github-actions" 
-    } 
-  } 
+    organization = "test-gh-actions"
+
+    workspaces {
+      name = "terraform-github-actions"
+    }
+  }
 }
 
 provider "aws" {
