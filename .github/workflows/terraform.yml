@@ -51,9 +51,9 @@ jobs:
             let planOutput = process.env.PLAN;
 
             // Append random characters to artificially inflate the plan size
-            while (planOutput.length <= MAX_LENGTH) {
-            planOutput += "This is a test string to make the plan output longer. ";
-            }
+            //while (planOutput.length <= MAX_LENGTH) {
+            //planOutput += "This is a test string to make the plan output longer. ";
+            //}
 
             // Truncate the PLAN if it's too long
             if (planOutput.length > MAX_LENGTH) {
