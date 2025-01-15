@@ -8,10 +8,10 @@ terraform {
 
   cloud {
 
-    organization = "test-gh-actions"
+    organization = "ragejournal0k"
 
     workspaces {
-      name = "terraform-github-actions"
+      name = "PipelineReview"
     }
   }
 }
