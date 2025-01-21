@@ -11,12 +11,14 @@ env:
   TF_WORKSPACE: "terraform-github-actions"
   CONFIG_DIRECTORY: "./"
 
+
 jobs:
   terraform:
     if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Apply"
     runs-on: ubuntu-latest
-    permissions:
+    permissions: # granular permissions
+      # so GitHub can check out this repo using the default github.token
       contents: read
     steps:
       - name: Checkout
@@ -28,6 +30,7 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
+
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: apply-run
@@ -41,4 +44,4 @@ jobs:
         id: apply
         with:
           run: ${{ steps.apply-run.outputs.run_id }}
-          comment: "Apply Run from GitHub Actions CI ${{ github.sha }} "
+          comment: "Apply Run from GitHub Actions CI ${{ github.sha }}"

@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 1.1.0" # Set to your required Terraform version
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,7 +9,6 @@ terraform {
   }
 
   cloud {
-
     organization = "test-gh-actions"
 
     workspaces {
@@ -15,6 +16,7 @@ terraform {
     }
   }
 }
+
 
 provider "aws" {
   region = "us-east-1"
